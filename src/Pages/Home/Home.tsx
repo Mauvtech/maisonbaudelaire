@@ -14,10 +14,10 @@ export function Home() {
                 <img
                     src={`${process.env.PUBLIC_URL}/MeufTransparente.png`}
                     alt="Models"
-                    className="w-3/4 h-auto mt-16 mb-[-41rem]" 
+                    className="w-3/4 h-auto mt-16 mb-[-41rem]"
                 />
 
-                {/* Conteneur pour "Drop" et "Sticker" alignés en dessous */}
+
                 <div className="flex justify-between items-center w-[120%] -ml-10 mt-8">
                     {/* Texte "Drop" à gauche */}
                     <img
