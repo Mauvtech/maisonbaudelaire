@@ -8,7 +8,7 @@ function App() {
 
       <Router>
         <Navbar />
-        <div className="min-h-screen w-full flex justify-center items-center  text-text font-sans">
+        <div className="min-h-screen w-full flex justify-center items-center overflow-hidden  text-text font-sans">
           <Routes>
             <Route path="/" element={<Home />} />
           </Routes>
