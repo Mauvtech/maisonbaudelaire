@@ -25,21 +25,21 @@ function Navbar() {
 
     return (
         <nav className="fixed top-0 left-0 w-full z-20 bg-transparent">
-            <div className="mx-auto px-4 sm:px-6 lg:px-20">
+            <div className=" p-[2%]">
                 <div className="flex justify-between items-center h-16">
                     {/* Logo et Texte à Gauche */}
                     <div className="flex items-center">
                         <img
                             src={`${process.env.PUBLIC_URL}/logo.png`}
                             alt="Logo"
-                            className="w-16 h-16 mt-1"
+                            className="w-[10%]  mt-1"
                         />
                         <Link to="/" className="text-error text-xl font-bold">
                             MAISON BAUDELAIRE
                         </Link>
                     </div>
                     {/* Liens de Navigation en Version Web */}
-                    <div className="hidden md:flex md:gap-12 items-center space-x-6">
+                    <div className="hidden md:flex md:gap-12 items-center mr-[4%]  space-x-6">
                         <Link
                             to="/"
                             className="text-error font-bold hover:text-gray-300 transition duration-300"
@@ -47,10 +47,10 @@ function Navbar() {
                             HOME
                         </Link>
                         <Link
-                            to="/contact"
-                            className="text-error font-bold hover:text-gray-300 transition duration-300"
+                            to="/about"
+                            className="text-error font-bold whitespace-nowrap  hover:text-gray-300 transition duration-300"
                         >
-                            A PROPOS
+                            À PROPOS
                         </Link>
                         <Link
                             to="/contact"
