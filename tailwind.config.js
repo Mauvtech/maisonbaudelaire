@@ -22,6 +22,7 @@ module.exports = {
         info: "#64B5F6", // Soft Blue
       },
       fontFamily: {
+        'shadows': ['"Shadows Into Light"', 'cursive'],
         sans: ["Poppins", "sans-serif"],
         serif: ["Merriweather", "serif"],
         mono: ["Menlo", "monospace"],

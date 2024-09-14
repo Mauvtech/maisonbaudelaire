@@ -74,7 +74,7 @@ function Navbar() {
             {menuOpen && (
                 <div
                     ref={menuRef}
-                    className="md:hidden absolute top-16 left-0 w-full bg-black p-4 z-10"
+                    className="md:hidden absolute top-16 left-0 w-full text-center bg-white p-4 z-10"
                 >
                     <Link
                         to="/"
