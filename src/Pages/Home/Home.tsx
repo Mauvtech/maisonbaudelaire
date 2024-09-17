@@ -7,7 +7,7 @@ export function Home() {
     // Utiliser useEffect pour afficher le popup après 2 secondes
     useEffect(() => {
         const timer = setTimeout(() => {
-            setShowPopup(true);
+            setShowPopup(false);
         }, 2000); // 2000 ms = 2 secondes
 
         // Nettoyer le timer lors du démontage du composant
@@ -21,7 +21,7 @@ export function Home() {
     };
 
     return (
-        <div className="relative max-w-full max-h-screen -mt-[27%] sm:mt-0 min-h-screen w-screen overflow-hidden  flex justify-center items-center">
+        <div className="relative max-w-full max-h-screen sm:mt-0 min-h-screen w-screen overflow-hidden  flex justify-center items-center">
             {/* Conteneur principal pour aligner les éléments */}
             <div className="relative w-full h-full mt-[2%] sm:-mt-[10%] overflow-hidden flex items-center justify-center">
                 {/* Image "The Brand" comme image de fond */}
@@ -90,8 +90,7 @@ export function Home() {
                                 type="text"
                                 className="bg-transparent border-none focus:outline-none"
                                 defaultValue="ROUGE"
-                            />
-                        </div>
+                            /> </div>
                         <div className="md:ml-6 ml-[1%] flex">
                             <label htmlFor="taille" className="mr-[2%]">TAILLE:</label>
                             <input
@@ -103,8 +102,7 @@ export function Home() {
                         </div>
                         <button
                             type="submit"
-                            className=" font-shadows  underline bg-transparent ml-[30%]  bottom-4 right-6"
-                        >
+                            className=" font-shadows -translate-y-[40%] sm:translate-x-[240%] translate-x-[180%]  underline bg-transparent">
                             Valider
                         </button>
                     </form>
@@ -129,7 +127,7 @@ export function Home() {
                         }}
                     >
                         {/* Formulaire centré sur le sticker */}
-                        <form onSubmit={handleSubmit} className="absolute mt-[5%] inset-0 flex flex-col justify-center items-center font-shadows text-[9px] -translate-x-[13%] sm:text-[17px] md:text-[21px] lg:text-[26px] xl:text-[35px] 2xl:text-[36px] text-white">
+                        <form onSubmit={handleSubmit} className="absolute mt-[8%] inset-0 flex flex-col justify-center items-center font-shadows   sm:-translate-x-[20%] -translate-x-[13%] sm:text-[17px] md:text-[21px] lg:text-[26px] xl:text-[35px] 2xl:text-[36px] text-[12px] text-white">
                             <div className="flex">
                                 <label htmlFor="popup-nom" className="mr-2">NOM:</label>
                                 <input
@@ -178,7 +176,7 @@ export function Home() {
                             {/* Bouton Valider */}
                             <button
                                 type="submit"
-                                className=" font-shadows text-[13px] sm:text-[17px] md:text-[21px] lg:text-[26px] xl:text-[35px] 2xl:text-[36px]  underline bg-transparent  bottom-4 right-6"
+                                className=" font-shadows -translate-y-[40%] sm:translate-x-[240%] translate-x-[120%] sm:text-[22px] md:text-[26px] lg:text-[30px] xl:text-[39px] 2xl:text-[40px] text-[16px] underline bg-transparent"
                             >
                                 Valider
                             </button>
