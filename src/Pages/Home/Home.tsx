@@ -32,7 +32,7 @@ export function Home() {
                 />
 
                 {/* Conteneur flex pour tous les éléments */}
-                <div className="relative mt-[20%] flex max-w-full w-full sm:flex-row flex-col items-center md:justify-between sm:w-[80%] md:mt-[33%]">
+                <div className="relative mt-[20%] max-h-screen flex max-w-full w-full sm:flex-row flex-col items-center md:justify-between sm:w-[80%] md:mt-[33%]">
                     {/* Texte "Drop" à gauche, aligné avec "The Brand" */}
                     <img
                         src={`${process.env.PUBLIC_URL}/drop.png`}
