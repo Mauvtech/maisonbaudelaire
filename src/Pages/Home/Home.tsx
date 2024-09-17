@@ -21,9 +21,9 @@ export function Home() {
     };
 
     return (
-        <div className="relative max-w-full max-h-screen sm:mt-0 min-h-screen w-screen overflow-hidden  flex justify-center items-center">
+        <div className="relative max-w-full max-h-screen  sm:mt-0 min-h-screen w-screen overflow-hidden  flex justify-center items-center">
             {/* Conteneur principal pour aligner les éléments */}
-            <div className="relative w-full h-full mt-[2%] sm:-mt-[10%] overflow-hidden flex items-center justify-center">
+            <div className="relative w-full h-full max-h-screen sm:-mt-[10%] overflow-hidden flex items-center justify-center">
                 {/* Image "The Brand" comme image de fond */}
                 <img
                     src={`${process.env.PUBLIC_URL}/thebrand.png`}
