@@ -32,7 +32,7 @@ export function Home() {
                 />
 
                 {/* Conteneur flex pour tous les éléments */}
-                <div className="relative max-h-screen flex max-w-full w-full sm:flex-row flex-col items-center justify-center md:justify-between sm:w-[80%] md:mt-[33%]">
+                <div className="relative max-h-screen bg-blue-500 flex max-w-full w-full sm:flex-row flex-col items-center justify-center md:justify-between sm:w-[80%] md:mt-[33%]">
                     {/* Texte "Drop" à gauche, aligné avec "The Brand" */}
                     <img
                         src={`${process.env.PUBLIC_URL}/drop.png`}
@@ -55,7 +55,7 @@ export function Home() {
                     />
 
                     {/* Formulaire sur le Sticker avec des Labels */}
-                    <form className="absolute  -ml-[12%] sm:ml-0 top-[66%] leading-normal opacity-85 md:left-[73%] md:top-[47%] transform sm:-translate-x-1/2 sm:-translate-y-1/2 font-shadows text-[13px] sm:text-[4px] md:text-[10px] lg:text-[12px] xl:text-[14px] 2xl:text-[18px] text-white">
+                    <form className="absolute  -ml-[12%] sm:ml-0 top-[67vh] leading-normal opacity-85 md:left-[73%] md:top-[47%] transform sm:-translate-x-1/2 sm:-translate-y-1/2 font-shadows text-[13px] sm:text-[4px] md:text-[10px] lg:text-[12px] xl:text-[14px] 2xl:text-[18px] text-white">
                         <div className="md:ml-6 ml-[5%] flex">
                             <label htmlFor="nom" className="mr-[2%]">NOM:</label>
                             <input
