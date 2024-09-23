@@ -1,29 +1,60 @@
 import React, { useState, useEffect } from "react";
+import emailjs from 'emailjs-com';
 
 export function Home() {
     // État pour contrôler la visibilité du popup
     const [showPopup, setShowPopup] = useState(false);
+    const [selectedColor, setSelectedColor] = useState('ROSE'); // État pour la couleur sélectionnée
+    const [selectedSize, setSelectedSize] = useState('M'); // État pour la taille sélectionnée
+    const [nom, setNom] = useState(''); // État pour le nom
+    const [prenom, setPrenom] = useState(''); // État pour le prénom
+    const [email, setEmail] = useState(''); // État pour l'email
 
     // Utiliser useEffect pour afficher le popup après 2 secondes
     useEffect(() => {
         const timer = setTimeout(() => {
-            setShowPopup(false);
+            setShowPopup(true);
         }, 2000); // 2000 ms = 2 secondes
 
         // Nettoyer le timer lors du démontage du composant
         return () => clearTimeout(timer);
     }, []);
 
-    // Fonction pour gérer la fermeture du popup
+  // Fonction pour envoyer l'email via EmailJS
+  const sendEmail = (formData:any) => {
+      emailjs.send('service_rx46rwb', 'template_dmlfjg3', formData, 'PHFyWP1ZTKLuyga9T')
+      .then((result) => {
+        console.log(result.text);
+        alert("Email envoyé avec succès !");
+      }, (error) => {
+        console.log(error.text);
+        alert("Erreur lors de l'envoi de l'email.");
+      });
+  };
+
+    // Fonction pour gérer la fermeture du popup et l'envoi d'email
     const handleSubmit = (event:any) => {
         event.preventDefault(); // Empêche le rechargement de la page
-        setShowPopup(false); // Ferme le popup
+        // Récupérer les informations du formulaire
+        const formData = {
+            nom: nom,
+            prenom: prenom,
+            email: email,
+            couleur: selectedColor,
+            taille: selectedSize
+        };
+
+        // Envoyer l'email avec EmailJS
+       sendEmail(formData);
+
+       setShowPopup(false); // Ferme le popup après soumission
     };
 
+
     return (
-        <div className="relative max-w-full max-h-[95vh] bg-red-500 sm:max-h-screen md:mt-0 sm:min-h-screen w-screen overflow-hidden  flex justify-center items-center">
+        <div className="relative max-w-full -mt-[27%] min-h-screen w-screen overflow-hidden bg-white flex justify-center items-center">
             {/* Conteneur principal pour aligner les éléments */}
-            <div className="relative w-full h-full max-h-screen sm:-mt-[10%] overflow-hidden flex items-center justify-center">
+            <div className="relative w-full h-full mt-[2%] overflow-hidden flex items-center justify-center">
                 {/* Image "The Brand" comme image de fond */}
                 <img
                     src={`${process.env.PUBLIC_URL}/thebrand.png`}
@@ -32,12 +63,12 @@ export function Home() {
                 />
 
                 {/* Conteneur flex pour tous les éléments */}
-                <div className="relative max-h-screen  sm:max-h-screen  flex max-w-full w-full sm:flex-row flex-col items-center justify-center md:justify-between sm:w-[80%] md:mt-[33%]">
+                <div className="relative mt-[20%] flex max-w-full w-full sm:flex-row flex-col items-center md:justify-between sm:w-[80%] md:mt-[33%]">
                     {/* Texte "Drop" à gauche, aligné avec "The Brand" */}
                     <img
                         src={`${process.env.PUBLIC_URL}/drop.png`}
                         alt="Drop Text"
-                        className="w-[20%] md:translate-y-0 translate-y-[530%] sm:-mt-[15%] -ml-[70%] sm:ml-[5%] sm:w-[18%]"
+                        className="w-[20%] md:translate-y-0 translate-y-[480%] sm:-mt-[15%] -ml-[70%] sm:ml-[5%] sm:w-[18%]"
                     />
 
                     {/* Image des filles au centre */}
@@ -55,54 +86,80 @@ export function Home() {
                     />
 
                     {/* Formulaire sur le Sticker avec des Labels */}
-                    <form className="absolute  -ml-[12%] sm:ml-0 top-[67vh] leading-normal opacity-85 md:left-[73%] md:top-[47%] transform sm:-translate-x-1/2 sm:-translate-y-1/2 font-shadows text-[13px] sm:text-[4px] md:text-[10px] lg:text-[12px] xl:text-[14px] 2xl:text-[18px] text-white">
+                    <form onSubmit={handleSubmit} className="absolute sm:h-[20%] -ml-[12%] sm:ml-0 top-[66%] leading-normal opacity-85 md:left-[74%] md:top-[48%] transform sm:-translate-x-1/2 sm:-translate-y-1/2 font-shadows text-[13px] sm:text-[11px] md:text-[12px] lg:text-[15px] xl:text-[19px] 2xl:text-[30px] text-white">
                         <div className="md:ml-6 ml-[5%] flex">
                             <label htmlFor="nom" className="mr-[2%]">NOM:</label>
                             <input
                                 id="nom"
+                                name="nom"
                                 type="text"
                                 className="bg-transparent border-none focus:outline-none"
-                                defaultValue="TON"
+                                value={nom}
+                                onChange={(e) => setNom(e.target.value)} // Met à jour l'état du nom
+                                required
                             />
                         </div>
                         <div className="flex">
                             <label htmlFor="prenom" className="mr-[2%]">PRENOM:</label>
                             <input
                                 id="prenom"
+                                name="prenom"
                                 type="text"
                                 className="bg-transparent border-none focus:outline-none"
-                                defaultValue="BLAZE"
+                                value={prenom}
+                                onChange={(e) => setPrenom(e.target.value)} // Met à jour l'état du prénom
+                                required
                             />
                         </div>
                         <div className="md:ml-6 ml-[3%] flex">
                             <label htmlFor="mail" className="mr-[2%]">MAIL:</label>
                             <input
                                 id="mail"
+                                name="mail"
                                 type="email"
                                 className="bg-transparent border-none focus:outline-none"
-                                defaultValue="TON@MAIL.COM"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)} // Met à jour l'état de l'email
+                                required
                             />
                         </div>
                         <div className="flex">
-                            <label htmlFor="couleur" className="mr-[2%]">COULEUR:</label>
-                            <input
-                                id="couleur"
-                                type="text"
-                                className="bg-transparent border-none focus:outline-none"
-                                defaultValue="ROUGE"
-                            /> </div>
-                        <div className="md:ml-6 ml-[1%] flex">
-                            <label htmlFor="taille" className="mr-[2%]">TAILLE:</label>
-                            <input
-                                id="taille"
-                                type="text"
-                                className="bg-transparent border-none focus:outline-none"
-                                defaultValue="M"
-                            />
+                            <label htmlFor="popup-couleur" className="mr-[2%]">COULEUR:</label>
+                            <div className="flex space-x-4">
+                                {['ROSE', 'NOIR'].map((color) => (
+                                    <button
+                                        key={color}
+                                        type="button"
+                                        onClick={() => setSelectedColor(color)}
+                                        className={`${selectedColor === color ? 'underline' : ''
+                                            } bg-transparent focus:outline-none text-white`}
+                                    >
+                                        {color}
+                                    </button>
+                                ))}
+                            </div>
                         </div>
+                        <div className="flex">
+                            <label htmlFor="popup-taille" className="mr-[2%]">TAILLE:</label>
+                            <div className="flex space-x-4">
+                                {['S', 'M', 'L','XL'].map((size) => (
+                                    <button
+                                        key={size}
+                                        type="button"
+                                        onClick={() => setSelectedSize(size)}
+                                        className={`${selectedSize === size ? 'underline' : ''
+                                            } bg-transparent focus:outline-none text-white`}
+                                    >
+                                        {size}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                        {/* Bouton Valider */}
                         <button
                             type="submit"
-                            className=" font-shadows -translate-y-[40%] sm:translate-x-[240%] translate-x-[180%]  underline bg-transparent">
+                            className="font-shadows sm:translate-x-[520%] text-[11px] md:text-[12px] lg:text-[15px] xl:text-[19px] 2xl:text-[30px] text-white underline bg-transparent sm:translate-y-[-43%]"
+                        >
                             Valider
                         </button>
                     </form>
@@ -111,72 +168,92 @@ export function Home() {
 
             {/* Popup qui apparaît après 2 secondes */}
             {showPopup && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+                <div className="fixed inset-0 bg-white max-h-screen  bg-opacity-50 flex justify-center items-center z-50">
                     {/* Conteneur avec l'image en fond et formulaire superposé */}
                     <div
-                        className="relative rounded-lg flex items-center justify-center"
+                        className="relative rounded-lg  flex items-center justify-center"
                         style={{
                             backgroundImage: `url(${process.env.PUBLIC_URL}/sticker.png)`,
                             backgroundSize: 'contain',
                             backgroundRepeat: 'no-repeat',
                             backgroundPosition: 'center',
                             width: '90%',
-                            maxWidth: '70%',
+                            maxWidth: '60%',
                             height: 'auto',
                             aspectRatio: '1 / 1',
                         }}
                     >
                         {/* Formulaire centré sur le sticker */}
-                        <form onSubmit={handleSubmit} className="absolute mt-[8%] inset-0 flex flex-col justify-center items-center font-shadows   sm:-translate-x-[20%] -translate-x-[13%] sm:text-[17px] md:text-[21px] lg:text-[26px] xl:text-[35px] 2xl:text-[36px] text-[12px] text-white">
+                        <form onSubmit={handleSubmit} className="sm:mt-[4%] h-[35%] inset-0 sm:mr-[13%] sm:h-[40%] flex flex-col justify-center items-center font-shadows text-[9px] -translate-x-[13%] sm:text-[17px] md:text-[21px] lg:text-[26px] xl:text-[35px] 2xl:text-[36px] text-white">
                             <div className="flex">
-                                <label htmlFor="popup-nom" className="mr-2">NOM:</label>
+                                <label htmlFor="popup-nom" className="">NOM:</label>
                                 <input
                                     className="bg-transparent border-none focus:outline-none"
                                     id="popup-nom"
                                     type="text"
+                                    value={nom}
+                                    onChange={(e) => setNom(e.target.value)} // Met à jour l'état du nom
                                     required
                                 />
                             </div>
                             <div className="flex">
-                                <label htmlFor="popup-prenom" className="mr-2">PRENOM:</label>
+                                <label htmlFor="popup-prenom" className="">PRENOM:</label>
                                 <input
                                     className="bg-transparent border-none focus:outline-none"
                                     id="popup-prenom"
                                     type="text"
+                                    value={prenom}
+                                    onChange={(e) => setPrenom(e.target.value)} // Met à jour l'état du prénom
                                     required
                                 />
                             </div>
                             <div className="flex">
-                                <label htmlFor="popup-mail" className="mr-2">MAIL:</label>
+                                <label htmlFor="popup-mail" className="">MAIL:</label>
                                 <input
                                     id="popup-mail"
                                     type="email"
                                     className="bg-transparent border-none focus:outline-none"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)} // Met à jour l'état de l'email
                                     required
                                 />
                             </div>
                             <div className="flex">
-                                <label htmlFor="popup-couleur" className="mr-2">COULEUR:</label>
-                                <input
-                                    className="bg-transparent border-none focus:outline-none"
-                                    id="popup-couleur"
-                                    type="text"
-                                    required
-                                />
+                                <label htmlFor="popup-couleur" className="mr-[2%]">COULEUR:</label>
+                                <div className="flex space-x-4">
+                                    {['ROSE', 'NOIR'].map((color) => (
+                                        <button
+                                            key={color}
+                                            type="button"
+                                            onClick={() => setSelectedColor(color)}
+                                            className={`${selectedColor === color ? 'underline' : ''
+                                                } bg-transparent focus:outline-none text-white`}
+                                        >
+                                            {color}
+                                        </button>
+                                    ))}
+                                </div>
                             </div>
-                            <div className="flex">
-                                <label htmlFor="popup-taille" className="mr-2">TAILLE:</label>
-                                <input
-                                    id="popup-taille"
-                                    type="text"
-                                    className="bg-transparent border-none focus:outline-none"
-                                    required
-                                />
+                            <div className="flex mr-[30%]">
+                                <label htmlFor="popup-taille" className="mr-[2%] ">TAILLE:</label>
+                                <div className="flex space-x-[34%]">
+                                    {['S', 'M', 'L', 'XL'].map((size) => (
+                                        <button
+                                            key={size}
+                                            type="button"
+                                            onClick={() => setSelectedSize(size)}
+                                            className={`${selectedSize === size ? 'underline' : ''
+                                                } bg-transparent focus:outline-none text-white`}
+                                        >
+                                            {size}
+                                        </button>
+                                    ))}
+                                </div>
                             </div>
                             {/* Bouton Valider */}
                             <button
                                 type="submit"
-                                className=" font-shadows -translate-y-[40%] sm:translate-x-[240%] translate-x-[120%] sm:text-[22px] md:text-[26px] lg:text-[30px] xl:text-[39px] 2xl:text-[40px] text-[16px] underline bg-transparent"
+                                className="sm:translate-x-[300%] font-shadows text-[13px] sm:text-[17px] md:text-[21px] lg:text-[26px] xl:text-[35px] 2xl:text-[36px] text-white underline bg-transparent"
                             >
                                 Valider
                             </button>

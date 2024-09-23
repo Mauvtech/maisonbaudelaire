@@ -2,7 +2,7 @@ import React from "react";
 
 export function About() {
     return (
-        <div className="xl:h-screen overflow-hidden ">
+        <div className="xl:h-screen overflow-scroll">
             {/* Section principale */}
             <main className=" mx-auto flex 2xl:mt-0 xl:mt-[5%] md:w-[80%]  xl:flex-row mt-[18%] flex-col justify-between items-center px-8">
                 {/* Section texte */}
