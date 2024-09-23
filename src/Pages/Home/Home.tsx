@@ -32,12 +32,12 @@ export function Home() {
                 />
 
                 {/* Conteneur flex pour tous les éléments */}
-                <div className="relative mt-[20%] max-h-screen flex max-w-full w-full sm:flex-row flex-col items-center md:justify-between sm:w-[80%] md:mt-[33%]">
+                <div className="relative max-h-screen flex max-w-full w-full sm:flex-row flex-col items-center justify-center md:justify-between sm:w-[80%] md:mt-[33%]">
                     {/* Texte "Drop" à gauche, aligné avec "The Brand" */}
                     <img
                         src={`${process.env.PUBLIC_URL}/drop.png`}
                         alt="Drop Text"
-                        className="w-[20%] md:translate-y-0 translate-y-[480%] sm:-mt-[15%] -ml-[70%] sm:ml-[5%] sm:w-[18%]"
+                        className="w-[20%] md:translate-y-0 translate-y-[530%] sm:-mt-[15%] -ml-[70%] sm:ml-[5%] sm:w-[18%]"
                     />
 
                     {/* Image des filles au centre */}
