@@ -21,7 +21,7 @@ export function Home() {
     };
 
     return (
-        <div className="relative max-w-full max-h-screens md:mt-0 min-h-screen w-screen overflow-hidden  flex justify-center items-center">
+        <div className="relative max-w-full max-h-screen bg-blue-500 md:mt-0 min-h-screen w-screen overflow-hidden  flex justify-center items-center">
             {/* Conteneur principal pour aligner les éléments */}
             <div className="relative w-full h-full max-h-screen sm:-mt-[10%] overflow-hidden flex items-center justify-center">
                 {/* Image "The Brand" comme image de fond */}
@@ -32,7 +32,7 @@ export function Home() {
                 />
 
                 {/* Conteneur flex pour tous les éléments */}
-                <div className="relative max-h-[99vh]  flex max-w-full w-full sm:flex-row flex-col items-center justify-center md:justify-between sm:w-[80%] md:mt-[33%]">
+                <div className="relative max-h-screen  sm:max-h-screen  flex max-w-full w-full sm:flex-row flex-col items-center justify-center md:justify-between sm:w-[80%] md:mt-[33%]">
                     {/* Texte "Drop" à gauche, aligné avec "The Brand" */}
                     <img
                         src={`${process.env.PUBLIC_URL}/drop.png`}
