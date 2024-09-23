@@ -52,12 +52,6 @@ function Navbar() {
                         >
                             À PROPOS
                         </Link>
-                        <Link
-                            to="/contact"
-                            className="text-error font-bold hover:text-gray-300 transition duration-300"
-                        >
-                            CONTACT
-                        </Link>
                     </div>
                     {/* Bouton Mobile */}
                     <div className="md:hidden flex items-center">
@@ -87,12 +81,6 @@ function Navbar() {
                         className="text-error font-bold block mt-4 hover:text-gray-300 transition duration-300"
                     >
                         A PROPOS
-                    </Link>
-                    <Link
-                        to="/contact"
-                        className="text-error font-bold block mt-4 hover:text-gray-300 transition duration-300"
-                    >
-                        CONTACT
                     </Link>
                 </div>
             )}
