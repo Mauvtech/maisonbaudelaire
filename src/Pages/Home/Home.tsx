@@ -87,7 +87,7 @@ export function Home() {
                     />
 
                     {/* Formulaire sur le Sticker avec des Labels */}
-                    <form onSubmit={handleSubmit} className="absolute sm:h-[20%] -ml-[18%] sm:ml-0 top-[74%] leading-normal opacity-85 md:left-[74%] md:top-[48%] transform sm:-translate-x-1/2 sm:-translate-y-1/2 font-shadows text-[10px] sm:text-[11px] md:text-[10px] lg:text-[13px] xl:text-[17px] 2xl:text-[28x] text-white">
+                    <form onSubmit={handleSubmit} className="absolute sm:h-[20%] -ml-[18%] sm:ml-0 top-[79%] leading-normal opacity-85 md:left-[74%] md:top-[48%] transform sm:-translate-x-1/2 sm:-translate-y-1/2 font-shadows text-[10px] sm:text-[11px] md:text-[10px] lg:text-[13px] xl:text-[17px] 2xl:text-[28x] text-white">
                         <div className="flex">
                             <label htmlFor="nom" className="mr-[2%]">NOM:</label>
                             <input
@@ -182,10 +182,10 @@ export function Home() {
 
             {/* Popup qui apparaît après 2 secondes */}
             {showPopup && (
-                <div className="fixed inset-0 bg-white max-h-screen bg-opacity-50 flex justify-center items-center z-50">
+                <div className="fixed inset-0 bg-black max-h-screen max-w-screen bg-opacity-50 flex justify-center items-center z-50">
                     {/* Conteneur avec l'image en fond et formulaire superposé */}
                     <div
-                        className="relative rounded-lg flex items-center justify-center"
+                        className="relative rounded-lg  flex items-center justify-center"
                         style={{
                             backgroundImage: `url(${process.env.PUBLIC_URL}/sticker.png)`,
                             backgroundSize: 'contain',
@@ -198,7 +198,7 @@ export function Home() {
                         }}
                     >
                         {/* Formulaire centré sur le sticker */}
-                        <form onSubmit={handleSubmit} className="sm:mt-[5%] mr-[17%] mt-[5%]  h-[35%] inset-0 sm:mr-[13%] sm:h-[40%] flex flex-col justify-center font-shadows text-[9px] -translate-x-[13%] sm:text-[17px] md:text-[21px] lg:text-[26px] xl:text-[35px] 2xl:text-[36px] text-white">
+                        <form onSubmit={handleSubmit} className="sm:mt-[5%] mr-[17%] mt-[5%]  h-[35%] tracking-wider caret-white inset-0 sm:mr-[13%] sm:h-[40%] flex flex-col justify-center font-shadows text-[9px] -translate-x-[13%] sm:text-[17px] md:text-[21px] lg:text-[26px] xl:text-[35px] 2xl:text-[36px] text-white">
                             <div className="flex">
                                 <label htmlFor="popup-nom" className="">NOM:</label>
                                 <input
@@ -213,7 +213,7 @@ export function Home() {
                             <div className="flex">
                                 <label htmlFor="popup-prenom" className="">PRENOM:</label>
                                 <input
-                                    className="bg-transparent border-none focus:outline-none"
+                                    className="bg-transparent pl-2 border-none focus:outline-none"
                                     id="popup-prenom"
                                     type="text"
                                     value={prenom}
