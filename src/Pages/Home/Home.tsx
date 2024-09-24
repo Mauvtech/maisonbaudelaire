@@ -198,11 +198,11 @@ export function Home() {
                         }}
                     >
                         {/* Formulaire centré sur le sticker */}
-                        <form onSubmit={handleSubmit} className="sm:mt-[5%] mr-[17%] mt-[5%]  h-[35%] tracking-wider caret-white inset-0 sm:mr-[13%] sm:h-[40%] flex flex-col justify-center font-shadows text-[9px] -translate-x-[13%] sm:text-[17px] md:text-[21px] lg:text-[26px] xl:text-[35px] 2xl:text-[36px] text-white">
+                        <form onSubmit={handleSubmit} className="sm:mt-[5%] mr-[17%] mt-[5%]  h-[35%] tracking-wider caret-white inset-0 sm:mr-[13%] sm:h-[40%] flex flex-col justify-center font-shadows text-[0.6rem] -translate-x-[13%] sm:text-[17px] md:text-[21px] lg:text-[26px] xl:text-[35px] 2xl:text-[36px] text-white">
                             <div className="flex">
                                 <label htmlFor="popup-nom" className="">NOM:</label>
                                 <input
-                                    className="bg-transparent border-none focus:outline-none"
+                                    className="bg-transparent  border-none focus:outline-none"
                                     id="popup-nom"
                                     type="text"
                                     value={nom}
