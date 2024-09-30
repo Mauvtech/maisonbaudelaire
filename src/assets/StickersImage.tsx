@@ -1,7 +1,7 @@
 import React from "react";
 
 interface StickersImageProps {
-    classname: string
+    classname?: string
 }
 
 export default function StickersImage({classname}: StickersImageProps) {

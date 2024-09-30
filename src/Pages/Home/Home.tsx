@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from "react";
 import StickersPopup from "../../components/StickersPopup";
-import StickersForm from "../../components/StickersForm";
+import StickerForm from "../../components/StickerForm/StickerForm";
 import DropImage from "../../assets/DropDateImage";
 import WomenTransparent from "../../assets/WomensTransparentBackground";
-import StickersImage from "../../assets/StickersImage";
 import styles from "./Home.module.css";
 import TheBrandImage from "../../assets/TheBrandImage";
 
@@ -59,18 +58,15 @@ export function Home() {
         <div className="bg-white h-full mt-[10%]">
             <div className={"flex flex-col px-32"}>
                 <TheBrandImage classname={"h-auto w-auto"}/>
-                <div className={"h-12"}>
+                <div className={"h-12 flex justify-between"}>
                     <DropImage classname={"h-full w-auto"}/>
+                    <StickerForm formData={formData} setFormData={setFormSelection}/>
                 </div>
             </div>
 
 
             <WomenTransparent classname={styles.models}/>
-            <span>
-                        <StickersImage classname={styles.sticker}/>
 
-                        <StickersForm formData={formData} setFormData={setFormSelection}/>
-            </span>
 
             {showPopup && (
                 <StickersPopup formData={formData} setFormSelection={setFormSelection} open={showPopup}
