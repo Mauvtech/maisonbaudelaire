@@ -1,17 +1,17 @@
-import clsx from "clsx";
-import styles from "./StickerForm.module.css";
 import FormItem from "./FormItem";
 import React from "react";
 import emailjs from "emailjs-com";
-import {FormData} from "../../Pages/Home/Home";
+
+import {FormData} from "../../Pages/Home/UseFormData";
 
 
 interface SelectionFormProps {
     formData: FormData,
-    setFormData: (formSelection: FormData) => void
+    setFormData: (formSelection: FormData) => void,
+    className?: string
 }
 
-export default function SelectionForm({formData, setFormData}: SelectionFormProps) {
+export default function SelectionForm({formData, setFormData, className}: SelectionFormProps) {
 
     const sendEmail = (formData: any) => {
         emailjs.send('service_rx46rwb', 'template_dmlfjg3', formData, 'PHFyWP1ZTKLuyga9T')
@@ -33,15 +33,15 @@ export default function SelectionForm({formData, setFormData}: SelectionFormProp
 
     return (
         <form onSubmit={handleSubmit}
-              className={clsx(styles.formOverlay, "text-xl text-white leading-normal font-shadows float-left flex ")}>
+              className={className}>
                 <span>
                     <FormItem
                         label={"NOM"}
-                        value={formData.nom ?? ""}
-                        onChange={(nom) => setFormData({...formData, nom})}
+                        value={formData.name ?? ""}
+                        onChange={(nom) => setFormData({...formData, name: nom})}
                     />
-                    <FormItem label={"PRENOM"} value={formData.prenom ?? ""}
-                              onChange={(e) => setFormData({...formData, prenom: e})}
+                    <FormItem label={"PRENOM"} value={formData.surname ?? ""}
+                              onChange={(e) => setFormData({...formData, surname: e})}
                     />
                     <FormItem label={"MAIL"} value={formData.email ?? ""}
                               onChange={(e) => setFormData({...formData, email: e})}
@@ -57,8 +57,8 @@ export default function SelectionForm({formData, setFormData}: SelectionFormProp
                                 <button
                                     key={color}
                                     type="button"
-                                    onClick={(e) => setFormData({...formData, couleur: color})}
-                                    className={`${formData.couleur === color ? 'underline' : ''
+                                    onClick={(e) => setFormData({...formData, color: color})}
+                                    className={`${formData.color === color ? 'underline' : ''
                                     } bg-transparent focus:outline-none text-white`}
                                 >
                                     {color}
@@ -73,8 +73,8 @@ export default function SelectionForm({formData, setFormData}: SelectionFormProp
                                 <button
                                     key={size}
                                     type="button"
-                                    onClick={(e) => setFormData({...formData, taille: size})}
-                                    className={`${formData.taille === size ? 'underline' : ''
+                                    onClick={(e) => setFormData({...formData, size: size})}
+                                    className={`${formData.size === size ? 'underline' : ''
                                     } bg-transparent focus:outline-none text-white`}
                                 >
                                     {size}
