@@ -8,20 +8,13 @@ export function About() {
                 <div className="xl:w-1/2 w-full gap-[2%] flex flex-col justify-center items-center h-full">
                     <h2 className="md:text-6xl text-3xl font-bold mb-[6%] text-error text-center">À PROPOS</h2>
                     <p className="text-gray-600 md:text-2xl leading-snug ">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi maximus sem
-                        vitae urna ornare, ac porttitor velit euismod. Suspendisse potenti. Sed
-                        pellentesque orci id efficitur finibus. Maecenas posuere vestibulum ipsum
-                        accumsan varius. Sed et urna libero. Nunc congue arcu a ante convallis, id
-                        rutrum justo luctus. Curabitur finibus mi risus, a consequat ligula
-                        sollicitudin tristique.
+                        Maison Baudelaire est née de la passion de quatre jeunes pour la mode et la culture urbaine.
+                        Inspirés par l’énergie des rues et l’élégance intemporelle, nous avons décidés de créer une
+                        marque qui fusionne ces deux univers.
                     </p>
                     <p className="mt-4 text-gray-600 md:text-2xl leading-snug">
-                        Vivamus nisi magna, lobortis eu enim vitae, vestibulum tristique odio. Nam
-                        placerat orci consequat ex vehicula, a gravida velit dignissim. Aenean
-                        tincidunt fringilla ex, id molestie erat feugiat id. Quisque a ultrices eros.
-                        Aliquam ullamcorper ipsum gravida, euismod lorem sit amet, dictum turpis.
-                        Cras quis velit at mauris placerat pretium. Cras risus nisl, porttitor id dui
-                        quis, euismod hendrerit libero.
+                        Chaque pièce que nous concevons raconte une histoire, alliant confort et style. Bienvenue chez
+                        Maison Baudelaire, ou l’authenticité et l’audace se rencontrent
                     </p>
                     <p className="mt-8 font-bold md:text-3xl">MAISON BAUDELAIRE</p>
                 </div>
