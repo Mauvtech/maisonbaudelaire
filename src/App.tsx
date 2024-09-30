@@ -5,19 +5,18 @@ import {Home} from './Pages/Home/Home';
 import {About} from './Pages/About/About';
 
 function App() {
-  return (
+    return (
+        <div className="w-full h-screen flex flex-col text-text font-sans">
 
-      <Router>
-        <Navbar />
-        <div className="min-h-screen w-full flex justify-center items-center overflow-hidden  text-text font-sans">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-          </Routes>
+            <Router>
+                <Navbar/>
+                <Routes>
+                    <Route path="/" element={<Home/>}/>
+                    <Route path="/about" element={<About/>}/>
+                </Routes>
+            </Router>
         </div>
-      </Router>
-
-  );
+    );
 }
 
 export default App;

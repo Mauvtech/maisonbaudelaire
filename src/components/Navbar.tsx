@@ -25,12 +25,12 @@ function Navbar() {
     }, []);
 
     return (
-        <nav className="fixed top-0 left-0 w-full z-20 bg-transparent">
+        <nav className="fixed top-0 left-0 w-full z-20 bg-transparent h-[10%]">
             <div className=" p-[2%]">
                 <div className="flex justify-between items-center h-16">
                     <div className="flex items-center">
                         <LogoImage/>
-                        <Link to="/" className="text-error text-xl font-bold">
+                        <Link to="/" className="text-error text-2xl font-bold">
                             MAISON BAUDELAIRE
                         </Link>
                     </div>
@@ -55,12 +55,11 @@ function Navbar() {
                             className="text-error font-bold focus:outline-none"
                             onClick={toggleMenu}
                         >
-                            {menuOpen ? <FaTimes /> : <FaBars />}
+                            {menuOpen ? <FaTimes/> : <FaBars/>}
                         </button>
                     </div>
                 </div>
             </div>
-            {/* Menu Mobile */}
             {menuOpen && (
                 <div
                     ref={menuRef}
