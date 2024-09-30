@@ -4,6 +4,7 @@ import emailjs from "emailjs-com";
 import StickersImage from "../../assets/StickersImage";
 import styles from "./StickerForm.module.css"
 import clsx from "clsx";
+import FormItem from "./FormItem";
 
 interface StickersPopupProps {
     formData: FormData,
@@ -36,54 +37,21 @@ export default function StickerForm({formData, setFormData}: StickersPopupProps)
             <form onSubmit={handleSubmit}
                   className={clsx(styles.formOverlay, "text-xl text-white leading-normal font-shadows float-left flex ")}>
                 <span>
-                    <div className="flex">
-                        <label htmlFor="nom" className="mr-[2%]">NOM:</label>
-                        <input
-                            className="bg-transparent  border-none focus:outline-none"
-                            id="popup-nom"
-                            type="text"
-                            value={formData.nom ?? ""}
-                            onChange={(e) => setFormData({...formData, nom: e.target.value})}
-                            required
-                        />
-                    </div>
-                    <div className="flex">
-                        <label htmlFor="prenom" className="mr-[2%]">PRENOM:</label>
-                        <input
-                            id="prenom"
-                            name="prenom"
-                            type="text"
-                            className="bg-transparent border-none focus:outline-none"
-                            value={formData.prenom ?? ""}
-                            onChange={(e) => setFormData({...formData, prenom: e.target.value})}
-                            required
-                        />
-                    </div>
-                    <div className="flex">
-                        <label htmlFor="mail" className="mr-[2%]">MAIL:</label>
-                        <input
-                            id="mail"
-                            name="mail"
-                            type="email"
-                            className="bg-transparent border-none focus:outline-none"
-                            value={formData.email ?? ""}
-                            onChange={(e) => setFormData({...formData, email: e.target.value})}
-                            required
-                        />
-                    </div>
-                    {/* Ajout du champ de numéro de téléphone */}
-                    <div className="flex">
-                        <label htmlFor="phone" className="mr-[2%]">TÉLÉPHONE:</label>
-                        <input
-                            id="phone"
-                            name="phone"
-                            type="tel"
-                            className="bg-transparent border-none focus:outline-none"
-                            value={formData.phone ?? ""}
-                            onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                            required
-                        />
-                    </div>
+                    <FormItem
+                        label={"NOM"}
+                        value={formData.nom ?? ""}
+                        onChange={(nom) => setFormData({...formData, nom})}
+                    />
+                    <FormItem label={"PRENOM"} value={formData.prenom ?? ""}
+                              onChange={(e) => setFormData({...formData, prenom: e})}
+                    />
+                    <FormItem label={"MAIL"} value={formData.email ?? ""}
+                              onChange={(e) => setFormData({...formData, email: e})}
+                    />
+
+                    <FormItem label={"TÉLÉPHONE"} value={formData.phone ?? ""}
+                              onChange={(e) => setFormData({...formData, phone: e})}
+                    />
                     <div className="flex">
                         <label htmlFor="popup-couleur" className="mr-[4%]">COULEUR:</label>
                         <div className="flex space-x-4">
