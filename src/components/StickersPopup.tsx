@@ -4,12 +4,12 @@ import {FormData} from "../Pages/Home/Home";
 
 interface StickersPopupProps {
     formData: FormData,
-    setFormSelection: (formSelection: FormData) => void,
+    setFormData: (formData: FormData) => void,
     open: boolean,
     setOpen: (value: (((prevState: boolean) => boolean) | boolean)) => void
 }
 
-export default function StickersPopup({ formData, setFormSelection, setOpen }: StickersPopupProps) {
+export default function StickersPopup({formData, setFormData, setOpen}: StickersPopupProps) {
 
     const sendEmail = (formData: any) => {
         emailjs.send('service_rx46rwb', 'template_dmlfjg3', formData, 'PHFyWP1ZTKLuyga9T')
@@ -33,7 +33,8 @@ export default function StickersPopup({ formData, setFormSelection, setOpen }: S
 
     return (
 
-        <div className="fixed inset-0 bg-black max-h-screen max-w-screen bg-opacity-50 flex justify-center items-center z-50">
+        <div
+            className="fixed inset-0 bg-black max-h-screen max-w-screen bg-opacity-50 flex justify-center items-center z-50">
             {/* Conteneur avec l'image en fond et formulaire superposé */}
             <div
                 className="relative rounded-lg  flex items-center justify-center"
@@ -48,7 +49,8 @@ export default function StickersPopup({ formData, setFormSelection, setOpen }: S
                     aspectRatio: '1 / 1',
                 }}
             >
-                <form onSubmit={handleSubmit} className="sm:mt-[5%] mr-[17%] mt-[5%]  h-[35%] tracking-wider caret-white inset-0 sm:mr-[13%] sm:h-[40%] flex flex-col justify-center font-shadows text-[0.6rem] -translate-x-[13%] sm:text-[17px] md:text-[21px] lg:text-[26px] xl:text-[35px] 2xl:text-[36px] text-white">
+                <form onSubmit={handleSubmit}
+                      className="sm:mt-[5%] mr-[17%] mt-[5%]  h-[35%] tracking-wider caret-white inset-0 sm:mr-[13%] sm:h-[40%] flex flex-col justify-center font-shadows text-[0.6rem] -translate-x-[13%] sm:text-[17px] md:text-[21px] lg:text-[26px] xl:text-[35px] 2xl:text-[36px] text-white">
                     <div className="flex">
                         <label htmlFor="popup-nom" className="">NOM:</label>
                         <input
@@ -56,7 +58,7 @@ export default function StickersPopup({ formData, setFormSelection, setOpen }: S
                             id="popup-nom"
                             type="text"
                             value={formData.nom ?? ""}
-                            onChange={(e) => setFormSelection({...formData, nom: e.target.value})}
+                            onChange={(e) => setFormData({...formData, nom: e.target.value})}
                             required
                         />
                     </div>
@@ -67,7 +69,7 @@ export default function StickersPopup({ formData, setFormSelection, setOpen }: S
                             id="popup-prenom"
                             type="text"
                             value={formData.prenom ?? ""}
-                            onChange={(e) => setFormSelection({...formData, prenom: e.target.value}) }
+                            onChange={(e) => setFormData({...formData, prenom: e.target.value})}
                             required
                         />
                     </div>
@@ -78,7 +80,7 @@ export default function StickersPopup({ formData, setFormSelection, setOpen }: S
                             type="email"
                             className="bg-transparent border-none focus:outline-none"
                             value={formData.email ?? ""}
-                            onChange={(e) => setFormSelection({...formData, email: e.target.value}) }
+                            onChange={(e) => setFormData({...formData, email: e.target.value})}
                             required
                         />
                     </div>
@@ -89,7 +91,7 @@ export default function StickersPopup({ formData, setFormSelection, setOpen }: S
                             type="tel"
                             className="bg-transparent border-none focus:outline-none"
                             value={formData.phone ?? ""}
-                            onChange={(e) => setFormSelection({...formData, phone: e.target.value})}
+                            onChange={(e) => setFormData({...formData, phone: e.target.value})}
                             required
                         />
                     </div>
@@ -100,7 +102,7 @@ export default function StickersPopup({ formData, setFormSelection, setOpen }: S
                                 <button
                                     key={color}
                                     type="button"
-                                    onChange={(e) => setFormSelection({...formData, couleur: color})}
+                                    onChange={(e) => setFormData({...formData, couleur: color})}
                                     className={`${formData.couleur === color ? 'underline' : ''
                                     } bg-transparent focus:outline-none text-white`}
                                 >
@@ -116,7 +118,7 @@ export default function StickersPopup({ formData, setFormSelection, setOpen }: S
                                 <button
                                     key={size}
                                     type="button"
-                                    onChange={(e) => setFormSelection({...formData, taille: size})}
+                                    onChange={(e) => setFormData({...formData, taille: size})}
                                     className={`${formData.taille === size ? 'underline' : ''
                                     } bg-transparent focus:outline-none text-white`}
                                 >
@@ -132,6 +134,7 @@ export default function StickersPopup({ formData, setFormSelection, setOpen }: S
                         Valider
                     </button>
                 </form>
+
             </div>
         </div>
     )

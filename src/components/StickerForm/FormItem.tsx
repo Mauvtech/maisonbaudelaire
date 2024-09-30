@@ -13,7 +13,6 @@ export default function FormItem({label, value, onChange}: FormItemProps) {
             <label htmlFor="nom" className="mr-[2%]">{label}:</label>
             <input
                 className="bg-transparent  border-none focus:outline-none"
-                id="popup-nom"
                 type="text"
                 value={value ?? ""}
                 onChange={(e) => onChange(e.target.value)}

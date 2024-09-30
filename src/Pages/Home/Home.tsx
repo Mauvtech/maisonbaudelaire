@@ -5,6 +5,7 @@ import DropImage from "../../assets/DropDateImage";
 import WomenTransparent from "../../assets/WomensTransparentBackground";
 import styles from "./Home.module.css";
 import TheBrandImage from "../../assets/TheBrandImage";
+import {containEmptyAttribute} from "../../utils/EmptyObject";
 
 export type FormData = {
     nom: string | null;
@@ -46,7 +47,7 @@ export function Home() {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            if (formData.nom === null || formData.prenom === null || formData.email === null || formData.phone === null) {
+            if (containEmptyAttribute(formData)) {
                 setShowPopup(true);
             }
         }, 2000);
@@ -70,7 +71,7 @@ export function Home() {
 
 
             {showPopup && (
-                <StickersPopup formData={formData} setFormSelection={setFormData} open={showPopup}
+                <StickersPopup formData={formData} setFormData={setFormData} open={showPopup}
                                setOpen={setShowPopup}/>)
             }
         </div>
