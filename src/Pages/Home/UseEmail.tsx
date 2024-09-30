@@ -5,7 +5,7 @@ import {useState} from "react";
 export default function useEmail() {
 
     const [hasBeenSent, setHasBeenSent] = useState<boolean>(
-        sessionStorage.getItem('hasBeenSent') ? JSON.parse(sessionStorage.getItem('hasBeenSent') as string) : false
+        localStorage.getItem('hasBeenSent') ? JSON.parse(localStorage.getItem('hasBeenSent') as string) === true : false
     );
     const sendEmail = (formData: FormData) => {
         const emailData = {
@@ -22,9 +22,10 @@ export default function useEmail() {
             .then((result) => {
                 console.log(result.text);
                 setHasBeenSent(true);
-                sessionStorage.setItem('hasBeenSent', JSON.stringify(true));
+                localStorage.setItem('hasBeenSent', JSON.stringify("true"));
                 alert("Tes informations ont bien été envoyées !");
             }, (error) => {
+                localStorage.setItem('hasBeenSent', JSON.stringify(false));
                 console.log(error.text);
                 alert("Erreur, veuillez réessayer plus tard.");
             });

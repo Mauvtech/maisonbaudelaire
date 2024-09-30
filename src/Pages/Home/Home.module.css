@@ -12,9 +12,16 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-55%, -50%); /* Center the image exactly */
+    transform: translate(-55%, -50%);
     width: 38rem;
     height: auto;
+
+
 }
 
-
+@media screen and (max-width: 768px) {
+    .models {
+        width: 30rem;
+        transform: translate(-55%, -70%);
+    }
+}

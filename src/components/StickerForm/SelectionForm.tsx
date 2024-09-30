@@ -8,10 +8,11 @@ import {FormData} from "../../Pages/Home/UseFormData";
 interface SelectionFormProps {
     formData: FormData,
     setFormData: (formSelection: FormData) => void,
-    className?: string
+    className?: string,
+    onSend?: () => any
 }
 
-export default function SelectionForm({formData, setFormData, className}: SelectionFormProps) {
+export default function SelectionForm({formData, setFormData, className, onSend}: SelectionFormProps) {
 
     const sendEmail = (formData: any) => {
         emailjs.send('service_rx46rwb', 'template_dmlfjg3', formData, 'PHFyWP1ZTKLuyga9T')
@@ -28,6 +29,7 @@ export default function SelectionForm({formData, setFormData, className}: Select
     const handleSubmit = (event: any) => {
         event.preventDefault();
         sendEmail(formData);
+        onSend && onSend();
     };
 
 
