@@ -1,0 +1,27 @@
+
+.sticker {
+    position: absolute;
+    bottom: 0; /* Aligns the image to the bottom */
+    right: 0; /* Aligns the image to the right */
+    width: 300px; /* Set the image size, adjust as needed */
+    height: auto;
+}
+
+
+.models {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-55%, -50%);
+    width: 38rem;
+    height: auto;
+
+
+}
+
+@media screen and (max-width: 768px) {
+    .models {
+        width: 30rem;
+        transform: translate(-55%, -70%);
+    }
+}

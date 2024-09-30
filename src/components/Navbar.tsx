@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
-import { FaBars, FaTimes } from "react-icons/fa";
+import React, {useEffect, useRef, useState} from "react";
+import {Link} from "react-router-dom";
+import {FaBars, FaTimes} from "react-icons/fa";
+import LogoImage from "../assets/LogoImage";
 
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -24,17 +25,12 @@ function Navbar() {
     }, []);
 
     return (
-        <nav className="fixed top-0 left-0 w-full z-20 bg-transparent">
+        <nav className="fixed top-0 left-0 w-full z-20 bg-transparent h-[10%]">
             <div className=" p-[2%]">
                 <div className="flex justify-between items-center h-16">
-                    {/* Logo et Texte à Gauche */}
                     <div className="flex items-center">
-                        <img
-                            src={`${process.env.PUBLIC_URL}/logo.png`}
-                            alt="Logo"
-                            className="w-[10%]  mt-1"
-                        />
-                        <Link to="/" className="text-error text-xl font-bold">
+                        <LogoImage/>
+                        <Link to="/" className="text-error text-2xl font-bold">
                             MAISON BAUDELAIRE
                         </Link>
                     </div>
@@ -59,12 +55,11 @@ function Navbar() {
                             className="text-error font-bold focus:outline-none"
                             onClick={toggleMenu}
                         >
-                            {menuOpen ? <FaTimes /> : <FaBars />}
+                            {menuOpen ? <FaTimes/> : <FaBars/>}
                         </button>
                     </div>
                 </div>
             </div>
-            {/* Menu Mobile */}
             {menuOpen && (
                 <div
                     ref={menuRef}
