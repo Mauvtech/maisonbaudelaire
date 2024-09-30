@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
-import { FaBars, FaTimes } from "react-icons/fa";
+import React, {useEffect, useRef, useState} from "react";
+import {Link} from "react-router-dom";
+import {FaBars, FaTimes} from "react-icons/fa";
+import LogoImage from "../assets/LogoImage";
 
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -27,13 +28,8 @@ function Navbar() {
         <nav className="fixed top-0 left-0 w-full z-20 bg-transparent">
             <div className=" p-[2%]">
                 <div className="flex justify-between items-center h-16">
-                    {/* Logo et Texte à Gauche */}
                     <div className="flex items-center">
-                        <img
-                            src={`${process.env.PUBLIC_URL}/logo.png`}
-                            alt="Logo"
-                            className="w-[10%]  mt-1"
-                        />
+                        <LogoImage/>
                         <Link to="/" className="text-error text-xl font-bold">
                             MAISON BAUDELAIRE
                         </Link>
