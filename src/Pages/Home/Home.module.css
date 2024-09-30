@@ -12,28 +12,9 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -75%); /* Center the image exactly */
-    width: 32rem; /* Set the image size, adjust as needed */
+    transform: translate(-55%, -50%); /* Center the image exactly */
+    width: 38rem;
     height: auto;
-    z-index: 1;
 }
 
-.imageContainer {
-    display: flex;
-
-    > img {
-        height: auto;
-        object-fit: none;
-        transform: scale(1.3);
-    }
-}
-
-.dropImageContainer {
-    display: flex;
-
-    > img {
-        height: 100%;
-        transform: scale(1.3);
-    }
-}
 

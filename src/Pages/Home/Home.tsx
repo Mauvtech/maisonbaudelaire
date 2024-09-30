@@ -6,7 +6,6 @@ import WomenTransparent from "../../assets/WomensTransparentBackground";
 import StickersImage from "../../assets/StickersImage";
 import styles from "./Home.module.css";
 import TheBrandImage from "../../assets/TheBrandImage";
-import {clsx} from "clsx";
 
 export type FormData = {
     nom: string | null;
@@ -58,12 +57,10 @@ export function Home() {
 
     return (
         <div className="bg-white h-full mt-[10%]">
-            <div className={"flex flex-col p-4"}>
-                <div className={clsx(styles.imageContainer, "h-96 mb-[-46px]")}>
-                    <TheBrandImage classname={"w-full h-auto"}/>
-                </div>
-                <div className={clsx(styles.dropImageContainer, "h-12")}>
-                    <DropImage classname={"ml-[10%]"}/>
+            <div className={"flex flex-col px-32"}>
+                <TheBrandImage classname={"h-auto w-auto"}/>
+                <div className={"h-12"}>
+                    <DropImage classname={"h-full w-auto"}/>
                 </div>
             </div>
 
