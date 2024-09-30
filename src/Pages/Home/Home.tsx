@@ -29,18 +29,19 @@ function useFormData() {
         });
 
     function setFormSelection(formData: FormData) {
+        console.log(formData);
         setFormData(formData);
         sessionStorage.setItem('formData', JSON.stringify(formData));
     }
 
 
-    return {formData, setFormSelection};
+    return {formData, setFormData: setFormSelection};
 }
 
 export function Home() {
     const [showPopup, setShowPopup] = useState(false);
 
-    const {formData, setFormSelection} = useFormData();
+    const {formData, setFormData} = useFormData();
 
 
     useEffect(() => {
@@ -60,7 +61,7 @@ export function Home() {
                 <TheBrandImage classname={"h-auto w-auto"}/>
                 <div className={"h-12 flex justify-between"}>
                     <DropImage classname={"h-full w-auto"}/>
-                    <StickerForm formData={formData} setFormData={setFormSelection}/>
+                    <StickerForm formData={formData} setFormData={setFormData}/>
                 </div>
             </div>
 
@@ -69,7 +70,7 @@ export function Home() {
 
 
             {showPopup && (
-                <StickersPopup formData={formData} setFormSelection={setFormSelection} open={showPopup}
+                <StickersPopup formData={formData} setFormSelection={setFormData} open={showPopup}
                                setOpen={setShowPopup}/>)
             }
         </div>

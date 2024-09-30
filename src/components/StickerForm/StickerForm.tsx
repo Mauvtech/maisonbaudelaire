@@ -59,7 +59,7 @@ export default function StickerForm({formData, setFormData}: StickersPopupProps)
                                 <button
                                     key={color}
                                     type="button"
-                                    onChange={(e) => setFormData({...formData, couleur: color})}
+                                    onClick={(e) => setFormData({...formData, couleur: color})}
                                     className={`${formData.couleur === color ? 'underline' : ''
                                     } bg-transparent focus:outline-none text-white`}
                                 >
@@ -75,7 +75,7 @@ export default function StickerForm({formData, setFormData}: StickersPopupProps)
                                 <button
                                     key={size}
                                     type="button"
-                                    onChange={(e) => setFormData({...formData, taille: size})}
+                                    onClick={(e) => setFormData({...formData, taille: size})}
                                     className={`${formData.taille === size ? 'underline' : ''
                                     } bg-transparent focus:outline-none text-white`}
                                 >
