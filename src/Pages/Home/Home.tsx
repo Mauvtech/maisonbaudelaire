@@ -8,6 +8,7 @@ import TheBrandImage from "../../assets/TheBrandImage";
 import {containEmptyAttribute} from "../../utils/EmptyObject";
 import {useFormData} from "./UseFormData";
 import useEmail from "./UseEmail";
+import { useMediaQuery } from 'react-responsive'
 
 export function Home() {
     const [showPopup, setShowPopup] = useState(false);
@@ -16,9 +17,11 @@ export function Home() {
 
     const {hasBeenSent} = useEmail();
 
+    const isLargeScreen = useMediaQuery({ query: '(min-width: 1024px)' })
+
     useEffect(() => {
         const timer = setTimeout(() => {
-            if (containEmptyAttribute(formData) && !hasBeenSent) {
+            if (containEmptyAttribute(formData) && !hasBeenSent && isLargeScreen) {
                 setShowPopup(true);
             }
         }, 2000);
@@ -28,18 +31,19 @@ export function Home() {
 
 
     return (
-        <div className="bg-white h-full mt-[10%]">
-            <div className={"flex flex-col px-32"}>
+        <div className="bg-white h-full lg:mt-[10%] mt-[55%]">
+            <div className={"flex flex-col lg:px-32 px-4 h-full"}>
                 <TheBrandImage classname={"h-auto w-auto"}/>
                 <div className={"h-12 flex justify-between"}>
                     <DropImage classname={"h-full w-auto"}/>
-                    <StickerForm formData={formData} setFormData={setFormData}/>
+                    { isLargeScreen && <StickerForm formData={formData} setFormData={setFormData}/> }
                 </div>
             </div>
 
 
             <WomenTransparent classname={styles.models}/>
 
+            <footer className={"flex justify-center p-4"}>Maison baudelaire™ all rights reserved</footer>
 
             {showPopup && (
                 <StickersPopup formData={formData} setFormData={setFormData} open={showPopup}
