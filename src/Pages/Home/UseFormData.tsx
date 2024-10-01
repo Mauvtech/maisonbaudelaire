@@ -18,8 +18,8 @@ export enum Size {
 
 
 export enum Color {
-    WHITE_PINK = 'Blanc/Rose',
-    BLACK_WHITE = 'Noir/Blanc'
+    WHITE_PINK = 'Blanc&Rose',
+    BLACK_WHITE = 'Noir&Blanc'
 }
 
 export function useFormData() {

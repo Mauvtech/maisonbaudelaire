@@ -15,20 +15,19 @@ export default function StickerPopup({formData, setFormData, setOpen}: StickersP
         <div
             className="fixed inset-0 bg-black max-h-screen max-w-screen bg-opacity-50 flex justify-center items-center z-50">
             <div
-                className="relative rounded-lg  flex items-center justify-center"
+                className="flex items-center justify-center"
                 style={{
                     backgroundImage: `url(${process.env.PUBLIC_URL}/sticker.png)`,
                     backgroundSize: 'contain',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center',
                     width: '90%',
-                    maxWidth: '80%',
-                    height: 'auto',
+                    maxWidth: '100%',
                     aspectRatio: '1 / 1',
                 }}
             >
                 <SelectionForm
-                    className="sm:mt-[5%] mr-[17%] mt-[5%]  h-[35%] tracking-wider caret-white inset-0 sm:mr-[13%] sm:h-[40%] flex flex-col justify-center font-shadows text-[0.6rem] -translate-x-[13%] sm:text-[17px] md:text-[21px] lg:text-[26px] xl:text-[35px] 2xl:text-[36px] text-white"
+                    className="px-0 lg:px-16 mr-6 tracking-wider caret-white absolute left-1/4 inset-0 flex flex-col justify-center font-shadows text-[0.6rem] -translate-x-[13%] sm:text-[17px] md:text-[21px] lg:text-[26px] xl:text-[35px] 2xl:text-[36px] text-white"
                     formData={formData} setFormData={setFormData}
                     onSend={() => setOpen(false)}
                 />
