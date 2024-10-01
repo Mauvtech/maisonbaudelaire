@@ -5,9 +5,22 @@ export type FormData = {
     surname: string | null;
     email: string | null;
     phone: string | null;
-    color: string;
-    size: string;
+    color: Color;
+    size: Size;
 };
+
+export enum Size {
+    S = 'S',
+    M = 'M',
+    L = 'L',
+    XXL = 'XXL'
+}
+
+
+export enum Color {
+    WHITE_PINK = 'Blanc / Rose',
+    BLACK_WHITE = 'Noir / Blanc'
+}
 
 export function useFormData() {
 
@@ -17,12 +30,11 @@ export function useFormData() {
             surname: null,
             email: null,
             phone: null,
-            color: 'ROSE',
-            size: 'M'
+            color: Color.WHITE_PINK,
+            size: Size.M,
         } satisfies FormData);
 
     function setFormSelection(formData: FormData) {
-        console.log(formData);
         setFormData(formData);
         sessionStorage.setItem('formData', JSON.stringify(formData));
     }

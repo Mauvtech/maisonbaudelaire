@@ -8,7 +8,7 @@ import {containEmptyAttribute} from "../../utils/EmptyObject";
 import {useFormData} from "./UseFormData";
 import useEmail from "./UseEmail";
 import {useMediaQuery} from 'react-responsive'
-import StickersPopup from "../../components/StickersPopup";
+import StickerPopup from "../../components/StickerPopup";
 
 export function Home() {
     const [showPopup, setShowPopup] = useState(false);
@@ -22,7 +22,7 @@ export function Home() {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            if (containEmptyAttribute(formData) && !hasBeenSent && isLargeScreen) {
+            if (containEmptyAttribute(formData) && !hasBeenSent) {
                 setShowPopup(true);
             }
         }, 2000);
@@ -43,14 +43,14 @@ export function Home() {
 
             </div>
 
-            <WomenTransparent classname={styles.models}/>
 
+            <WomenTransparent classname={styles.models}/>
 
             <footer className={"flex justify-center p-4"}>Maison baudelaire™ all rights reserved</footer>
 
             {showPopup && (
-                <StickersPopup formData={formData} setFormData={setFormData} open={showPopup}
-                               setOpen={setShowPopup}/>)
+                <StickerPopup formData={formData} setFormData={setFormData} open={showPopup}
+                              setOpen={setShowPopup}/>)
             }
         </div>
     );

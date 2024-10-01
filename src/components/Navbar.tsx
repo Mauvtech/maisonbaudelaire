@@ -67,6 +67,7 @@ function Navbar() {
                 >
                     <Link
                         to="/"
+                        style={{textDecoration: "underline"}}
                         className="text-error font-bold block mt-4 hover:text-gray-300 transition duration-300"
                     >
                         HOME
