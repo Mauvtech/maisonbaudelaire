@@ -33,20 +33,23 @@ export function Home() {
 
     return (
         <div className="bg-white h-full md:mt-[10%] mt-[30%]">
-            <div className={"flex flex-col lg:px-32 px-4 h-full"}>
-                <TheBrandImage classname={"h-auto w-auto"}/>
+            <div className={"flex flex-col lg:px-32 px-4 "}>
+                <TheBrandImage classname={"h-auto w-auto contrast-75 brightness-125"}/>
                 <div className={"h-12 flex justify-between md:mt-0 mt-[340px] "}>
                     <DropImage classname={"h-full w-auto"}/>
                     {isLargeScreen && <StickerForm formData={formData} setFormData={setFormData}/>}
                 </div>
+            </div>
+            <div className={"py-4 px-1"}>
                 {isMobile && <StickerForm formData={formData} setFormData={setFormData}/>}
-
             </div>
 
 
             <WomenTransparent classname={styles.models}/>
 
-            <footer className={"flex justify-center p-4"}>Maison baudelaire™ all rights reserved</footer>
+            <footer className={"flex justify-center p-2 fixed left-0 bottom-0 w-full text-center"}>Maison baudelaire™
+                all rights reserved
+            </footer>
 
             {showPopup && (
                 <StickerPopup formData={formData} setFormData={setFormData} open={showPopup}

@@ -1,11 +1,21 @@
 import React, {useEffect, useRef, useState} from "react";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import {FaBars, FaTimes} from "react-icons/fa";
 import LogoImage from "../assets/LogoImage";
+
+const paths = {
+    home: "/",
+    about: "/about",
+    contact: "/contact",
+};
 
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
+
+    const location = useLocation()
+
+    console.log(location)
 
     const toggleMenu = () => {
         setMenuOpen((prev) => !prev);
@@ -49,7 +59,6 @@ function Navbar() {
                             À PROPOS
                         </Link>
                     </div>
-                    {/* Bouton Mobile */}
                     <div className="md:hidden flex items-center">
                         <button
                             className="text-error font-bold focus:outline-none"
@@ -67,13 +76,12 @@ function Navbar() {
                 >
                     <Link
                         to="/"
-                        style={{textDecoration: "underline"}}
                         className="text-error font-bold block mt-4 hover:text-gray-300 transition duration-300"
                     >
                         HOME
                     </Link>
                     <Link
-                        to="/contact"
+                        to="/about"
                         className="text-error font-bold block mt-4 hover:text-gray-300 transition duration-300"
                     >
                         A PROPOS
