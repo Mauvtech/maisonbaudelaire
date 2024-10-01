@@ -18,6 +18,7 @@ export function Home() {
     const {hasBeenSent} = useEmail();
 
     const isLargeScreen = useMediaQuery({query: '(min-width: 1024px)'})
+    const isMobile = useMediaQuery({query: '(max-width: 1023px)'})
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -38,15 +39,7 @@ export function Home() {
                     <DropImage classname={"h-full w-auto"}/>
                     {isLargeScreen && <StickerForm formData={formData} setFormData={setFormData}/>}
                 </div>
-                <div className={"flex justify-center mt-12"}>
-                    {!isLargeScreen && <button
-                        className={"text-3xl underline float-end self-end text-[#cb66ad] font-shadows"}
-                        onClick={() => setShowPopup(true)}
-                    >
-                        Sois le premier à en profiter
-                    </button>
-                    }
-                </div>
+                {isMobile && <StickerForm formData={formData} setFormData={setFormData}/>}
 
             </div>
 

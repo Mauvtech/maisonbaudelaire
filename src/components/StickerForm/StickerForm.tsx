@@ -13,7 +13,7 @@ interface StickersPopupProps {
 export default function StickerForm({formData, setFormData}: StickersPopupProps) {
 
     return (
-        <div className={"relative w-[30rem]"}>
+        <div className={"relative lg:w-[30rem] w-full"}>
             <StickersImage classname={"absolute top-0 right-0 object-cover w-full"}/>
             <SelectionForm
                 className={clsx(styles.formOverlay, "text-xl text-white leading-normal font-shadows float-left flex ")}
