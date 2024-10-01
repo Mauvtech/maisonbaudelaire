@@ -19,7 +19,7 @@ function App() {
                 </Routes>
                 {isLargeScreen && <footer
                     className={"flex justify-center p-2 fixed left-0 bottom-0 w-full text-center text-[#7C3315]"}>Maison
-                    baudelaire™
+                    Baudelaire™
                     all rights reserved
                 </footer>}
             </Router>
