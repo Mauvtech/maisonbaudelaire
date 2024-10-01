@@ -3,7 +3,6 @@ import {Link, useLocation} from "react-router-dom";
 import {FaBars, FaTimes} from "react-icons/fa";
 import LogoImage from "../assets/LogoImage";
 import clsx from "clsx";
-import {Simulate} from "react-dom/test-utils";
 
 type Page = {
     path: string;
@@ -77,6 +76,7 @@ function Navbar() {
                     {PAGES.map((page) => (
                         <Link
                             to={page.path}
+                            onClick={() => setMenuOpen(false)}
                             className={clsx("text-error font-bold block mt-4 hover:text-gray-300 transition duration-300", location.pathname === page.path && "underline")}
                         >
                             {page.label}
