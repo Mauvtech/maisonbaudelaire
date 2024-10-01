@@ -47,9 +47,6 @@ export function Home() {
 
             <WomenTransparent classname={styles.models}/>
 
-            <footer className={"flex justify-center p-2 fixed left-0 bottom-0 w-full text-center"}>Maison baudelaire™
-                all rights reserved
-            </footer>
 
             {showPopup && (
                 <StickerPopup formData={formData} setFormData={setFormData} open={showPopup}
