@@ -1,4 +1,4 @@
-import FormItem from "./FormItem";
+import FormItem from "./FormItem/FormItem";
 import React from "react";
 
 import {Color, FormData, Size} from "../../Pages/Home/UseFormData";
@@ -36,7 +36,7 @@ export default function SelectionForm({formData, setFormData, className, onSend}
                           onChange={(e) => setFormData({...formData, surname: e})}
                 />
                 <FormItem label={"MAIL"} value={formData.email ?? ""}
-                          type={"email"}
+                          id={"email"}
                           onChange={(e) => setFormData({...formData, email: e})}
                 />
 
