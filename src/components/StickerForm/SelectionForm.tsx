@@ -36,6 +36,7 @@ export default function SelectionForm({formData, setFormData, className, onSend}
                           onChange={(e) => setFormData({...formData, surname: e})}
                 />
                 <FormItem label={"MAIL"} value={formData.email ?? ""}
+                          type={"email"}
                           onChange={(e) => setFormData({...formData, email: e})}
                 />
 
