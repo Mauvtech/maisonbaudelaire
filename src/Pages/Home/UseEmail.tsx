@@ -25,7 +25,7 @@ export default function useEmail() {
                 localStorage.setItem('hasBeenSent', JSON.stringify("true"));
                 alert("Tes informations ont bien été envoyées !");
             }, (error) => {
-                localStorage.setItem('hasBeenSent', JSON.stringify(false));
+                localStorage.setItem('hasBeenSent', JSON.stringify("false"));
                 console.log(error.text);
                 alert("Erreur, veuillez réessayer plus tard.");
             });

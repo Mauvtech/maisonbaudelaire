@@ -13,6 +13,11 @@ function App() {
                     <Route path="/" element={<Home/>}/>
                     <Route path="/about" element={<About/>}/>
                 </Routes>
+                <footer
+                    className={"flex justify-center p-2 fixed left-0 bottom-0 w-full text-center text-[#7C3315]"}>Maison
+                    baudelaire™
+                    all rights reserved
+                </footer>
             </Router>
         </div>
     );

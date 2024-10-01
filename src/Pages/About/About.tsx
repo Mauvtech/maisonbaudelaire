@@ -19,7 +19,7 @@ export function About() {
                     <p className="mt-8 font-bold md:text-3xl">MAISON BAUDELAIRE</p>
                 </div>
 
-                <div className="w-[42%] xl:py-[12%] py-[3%] h-full flex justify-center">
+                <div className="w-full lg:w-[42%] xl:py-[12%] py-[3%] h-full flex justify-center">
                     <img
                         src={`${process.env.PUBLIC_URL}/group-image.jpg`}
                         alt="Group of models"

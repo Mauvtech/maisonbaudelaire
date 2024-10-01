@@ -10,9 +10,8 @@ interface StickersPopupProps {
     setOpen: (value: (((prevState: boolean) => boolean) | boolean)) => void
 }
 
-export default function StickersPopup({formData, setFormData, setOpen}: StickersPopupProps) {
+export default function StickerPopup({formData, setFormData, setOpen}: StickersPopupProps) {
     return (
-
         <div
             className="fixed inset-0 bg-black max-h-screen max-w-screen bg-opacity-50 flex justify-center items-center z-50">
             <div
@@ -33,7 +32,6 @@ export default function StickersPopup({formData, setFormData, setOpen}: Stickers
                     formData={formData} setFormData={setFormData}
                     onSend={() => setOpen(false)}
                 />
-
             </div>
         </div>
     )

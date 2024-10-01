@@ -1,8 +1,8 @@
 import FormItem from "./FormItem";
 import React from "react";
-import emailjs from "emailjs-com";
 
-import {FormData} from "../../Pages/Home/UseFormData";
+import {Color, FormData, Size} from "../../Pages/Home/UseFormData";
+import useEmail from "../../Pages/Home/UseEmail";
 
 
 interface SelectionFormProps {
@@ -14,17 +14,7 @@ interface SelectionFormProps {
 
 export default function SelectionForm({formData, setFormData, className, onSend}: SelectionFormProps) {
 
-    const sendEmail = (formData: any) => {
-        emailjs.send('service_rx46rwb', 'template_dmlfjg3', formData, 'PHFyWP1ZTKLuyga9T')
-            .then((result) => {
-                console.log(result.text);
-                alert("Tes informations ont bien été envoyées !");
-            }, (error) => {
-                console.log(error.text);
-                alert("Erreur, veuillez réessayer plus tard.");
-            });
-    };
-
+    const {sendEmail} = useEmail()
 
     const handleSubmit = (event: any) => {
         event.preventDefault();
@@ -55,7 +45,7 @@ export default function SelectionForm({formData, setFormData, className, onSend}
                     <div className="flex">
                         <label htmlFor="popup-couleur" className="mr-[4%]">COULEUR:</label>
                         <div className="flex space-x-4">
-                            {['ROSE', 'NOIR'].map((color) => (
+                            {Object.values(Color).map((color) => (
                                 <button
                                     key={color}
                                     type="button"
@@ -71,7 +61,7 @@ export default function SelectionForm({formData, setFormData, className, onSend}
                     <div className="flex">
                         <label htmlFor="popup-taille" className="mr-[4%]">TAILLE:</label>
                         <div className="flex space-x-4">
-                            {['S', 'M', 'L', 'XL'].map((size) => (
+                            {Object.values(Size).map((size) => (
                                 <button
                                     key={size}
                                     type="button"
