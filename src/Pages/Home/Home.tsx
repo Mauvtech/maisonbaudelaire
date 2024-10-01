@@ -35,14 +35,14 @@ export function Home() {
         <div className="bg-white h-full md:mt-[10%] mt-[30%]">
             <div className={"flex flex-col lg:px-32 px-4 "}>
                 <TheBrandImage classname={"h-auto w-auto contrast-75 brightness-125"}/>
-                <div className={"h-12 flex justify-between md:mt-0 mt-[340px] "}>
+                <div className={"h-6 lg:h-12 flex justify-between "}>
                     <DropImage classname={"h-full w-auto"}/>
                     {isLargeScreen && <StickerForm formData={formData} setFormData={setFormData}/>}
                 </div>
             </div>
-            <div className={"py-4 px-1"}>
-                {isMobile && <StickerForm formData={formData} setFormData={setFormData}/>}
-            </div>
+            {isMobile && <div className={"py-4 px-1 mt-[340px] lg:mt-0"}>
+                <StickerForm formData={formData} setFormData={setFormData}/>
+            </div>}
 
 
             <WomenTransparent classname={styles.models}/>
