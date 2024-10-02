@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useRef, useState} from "react";
 import {Link, useLocation} from "react-router-dom";
 import {FaBars, FaTimes} from "react-icons/fa";
 import LogoImage from "../assets/LogoImage";
@@ -24,26 +24,14 @@ function Navbar() {
         setMenuOpen((prev) => !prev);
     };
 
-    useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-                setMenuOpen(false);
-            }
-        };
-
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    }, []);
 
     return (
-        <nav className="fixed top-0 left-0 w-full z-20 bg-transparent h-[10%]">
+        <nav className="top-0 left-0 w-full z-20 bg-transparent h-[10%]">
             <div className=" p-[2%]">
                 <div className="flex justify-between items-center h-16">
                     <div className="flex items-center">
                         <LogoImage/>
-                        <Link to="/" className="text-error text-2xl font-bold">
+                        <Link to="/" className="text-error text-xl lg:text-2xl font-bold">
                             MAISON BAUDELAIRE
                         </Link>
                     </div>
