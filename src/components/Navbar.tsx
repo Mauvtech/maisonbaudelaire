@@ -43,7 +43,7 @@ function Navbar() {
                 <div className="flex justify-between items-center h-16">
                     <div className="flex items-center">
                         <LogoImage/>
-                        <Link to="/" className="text-error text-2xl font-bold">
+                        <Link to="/" className="text-error text-xl lg:text-2xl font-bold">
                             MAISON BAUDELAIRE
                         </Link>
                     </div>
