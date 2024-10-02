@@ -13,7 +13,8 @@ export function About() {
         <div className="xl:h-screen overflow-scroll">
             <main
                 className="mx-auto flex 2xl:mt-0 xl:mt-[5%] md:w-[80%]  xl:flex-row mt-[20%] flex-col justify-between items-center px-8">
-                <div className="xl:w-1/2 w-full gap-[2%] flex flex-col justify-center items-center h-full py-4">
+                <div
+                    className="xl:w-1/2 w-full gap-[2%] flex flex-col justify-center items-center lg:items-start h-full py-4">
                     <h2 className="md:text-6xl text-3xl font-bold mb-[6%] text-error text-center">À PROPOS</h2>
                     <AboutItem>
                         « Maison Baudelaire est née de la passion de quatre jeunes pour la mode et la culture urbaine.»
