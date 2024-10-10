@@ -40,7 +40,7 @@ export function Home() {
                     {isLargeScreen && <StickerForm formData={formData} setFormData={setFormData}/>}
                 </div>
             </div>
-            {isMobile && <div className={"py-4 px-1 mt-[340px] lg:mt-0"}>
+            {isMobile && <div className={"py-4 px-1 mt-[240px] lg:mt-0"}>
                 <StickerForm formData={formData} setFormData={setFormData}/>
             </div>}
 
