@@ -17,7 +17,7 @@ export default function StickerForm({classname, formData, setFormData}: Stickers
         <div className={clsx("relative lg:w-[30rem] w-[80%]", classname)}>
             <StickersImage classname={"absolute top-0 right-0 object-cover w-full"}/>
             <SelectionForm
-                className={clsx(styles.formOverlay, "lg:text-xl text-sm lg:p-0 p-6 text-white leading-normal font-shadows float-left flex ")}
+                className={clsx(styles.formOverlay, "lg:text-xl text-xs lg:p-0 p-6 text-white leading-normal font-shadows float-left flex ")}
                 formData={formData} setFormData={setFormData}/>
         </div>
 
