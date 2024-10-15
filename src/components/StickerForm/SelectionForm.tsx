@@ -79,7 +79,7 @@ export default function SelectionForm({formData, setFormData, className, onSend,
             </div>
             <div className={"float-right flex items-end flex-wrap justify-end " + classValider}>
                 <button
-                    className={"text-[150%] underline"}
+                    className={"text-[150%] underline lg:mr-[10%]"}
                     type="submit"
                 >
                     Valider
