@@ -9,10 +9,11 @@ interface SelectionFormProps {
     formData: FormData,
     setFormData: (formSelection: FormData) => void,
     className?: string,
+    classValider?: string,
     onSend?: () => any
 }
 
-export default function SelectionForm({formData, setFormData, className, onSend}: SelectionFormProps) {
+export default function SelectionForm({formData, setFormData, className, onSend, classValider}: SelectionFormProps) {
 
     const {sendEmail} = useEmail()
 
@@ -76,7 +77,7 @@ export default function SelectionForm({formData, setFormData, className, onSend}
                     </div>
                 </div>
             </div>
-            <div className={"float-right flex items-end flex-wrap justify-end mr-3"}>
+            <div className={"float-right flex items-end flex-wrap justify-end " + classValider}>
                 <button
                     className={"text-[150%] underline"}
                     type="submit"
