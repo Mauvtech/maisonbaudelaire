@@ -27,7 +27,7 @@ export default function StickerPopup({formData, setFormData, setOpen}: StickersP
                 }}
             >
                 <SelectionForm
-                    className="px-0 lg:px-16 mr-6 tracking-wider caret-white absolute left-1/4 inset-0 flex flex-col justify-center font-shadows text-[0.6rem] -translate-x-[10%] sm:text-[17px] md:text-[21px] lg:text-[26px] xl:text-[35px] 2xl:text-[36px] text-white"
+                    className="px-0 lg:px-16 mr-6 lg:mt-0 mt-4 tracking-wider caret-white absolute left-1/4 inset-0 flex flex-col justify-center font-shadows text-[0.6rem] -translate-x-[10%] sm:text-[17px] md:text-[21px] lg:text-[26px] xl:text-[35px] 2xl:text-[36px] text-white"
                     formData={formData} setFormData={setFormData}
                     onSend={() => setOpen(false)}
                 />
