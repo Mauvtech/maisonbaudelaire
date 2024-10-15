@@ -22,7 +22,7 @@
 @media screen and (max-width: 768px) {
     .models {
         width: 22rem;
-       top: 68%;
+       top: 58%;
         transform: translate(-55%, -70%);
     }
 }

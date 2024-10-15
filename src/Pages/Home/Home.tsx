@@ -32,7 +32,7 @@ export function Home() {
 
 
     return (
-        <div className="bg-white h-full md:mt-[10%] mt-[30%]">
+        <div className="bg-white h-full md:mt-[10%] mt-[10%]">
             <div className={"flex flex-col lg:px-32 px-4 "}>
                 <TheBrandImage classname={"h-auto w-auto contrast-75 brightness-125"}/>
                 <div className={"h-6 lg:h-12 flex justify-between "}>
@@ -40,7 +40,7 @@ export function Home() {
                     {isLargeScreen && <StickerForm formData={formData} setFormData={setFormData}/>}
                 </div>
             </div>
-            {isMobile && <div className={"py-4 px-1 mt-[60%] flex justify-center lg:mt-0"}>
+            {isMobile && <div className={"py-4 px-1 mt-[65%] flex justify-center lg:mt-0"}>
                 <StickerForm formData={formData} setFormData={setFormData}/>
             </div>}
 
