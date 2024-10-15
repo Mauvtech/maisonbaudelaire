@@ -5,7 +5,7 @@ export function AboutItem({children}: { children: ReactNode }) {
         <p className="text-gray-600 text-xl sm:text-3xl leading-snug py-4 text-center italic">
             <span className="text-4xl mt-1 inline-block align-middle mr-1">“</span>
             {children}
-            <span className="text-4xl mt-1 inline-block align-middle ml-1">“</span>
+            <span className="text-4xl mt-1 inline-block align-middle ml-1">” </span>
         </p>
 
     );
@@ -33,7 +33,7 @@ export function About() {
                          Bienvenue chez Maison Baudelaire , ou l’authenticité et l’audace se rencontrent
                     </AboutItem>
                     <div className={"w-full flex justify-center"}>
-                        <p className="lg:mt-2  font-bold text-md  lg:text-2xl -mt-3 mb-6 lg:mb-0"> MAISON BAUDELAIRE</p>
+                        <p className="lg:mt-2  font-bold text-md  lg:text-2xl  mb-6 lg:mb-0"> MAISON BAUDELAIRE</p>
                     </div>
 
                 </div>
