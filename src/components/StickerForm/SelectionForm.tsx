@@ -3,6 +3,7 @@ import React from "react";
 
 import { Color, FormData, Size } from "../../Pages/Home/UseFormData";
 import useEmail from "../../Pages/Home/UseEmail";
+import Soldout from "../../assets/Soldout";
 
 interface SelectionFormProps {
     formData: FormData;
@@ -87,7 +88,7 @@ export default function SelectionForm({ formData, setFormData, className, onSend
                                 </button>
                             ))
                         ) : (
-                            <span className="text-red-500">Sold out</span> // Affiche "Sold out" si aucune taille n'est disponible
+                            <Soldout classname="lg:w-32 w-12 object-cover"/>// Affiche "Sold out" si aucune taille n'est disponible
                         )}
                     </div>
                 </div>
