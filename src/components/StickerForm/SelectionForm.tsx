@@ -72,7 +72,7 @@ export default function SelectionForm({ formData, setFormData, className, onSend
                     </div>
                 </div>
 
-                <div className="flex mt-4">
+                <div className="flex">
                     <label htmlFor="popup-taille" className="mr-[4%]">TAILLE:</label>
                     <div className="flex space-x-4">
                         {availableSizes.length > 0 ? (
