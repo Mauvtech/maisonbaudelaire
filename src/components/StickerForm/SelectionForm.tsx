@@ -14,8 +14,8 @@ interface SelectionFormProps {
 
 // Tailles disponibles en fonction de la couleur sélectionnée
 const availableSizesByColor = {
-    [Color.WHITE_PINK]: [Size.S, Size.M, Size.XXL, Size.Oversize],// Sold out pour Blanc&Rose
-    [Color.BLACK_WHITE]: [Size.S, Size.M, Size.XXL, Size.Oversize], // Tailles disponibles pour Noir&Blanc
+    [Color.WHITE_PINK]: [Size.S, Size.M, Size.Oversize],// Sold out pour Blanc&Rose
+    [Color.BLACK_WHITE]: [Size.S, Size.M, Size.Oversize], // Tailles disponibles pour Noir&Blanc
 };
 
 export default function SelectionForm({ formData, setFormData, className, onSend, classValider }: SelectionFormProps) {
