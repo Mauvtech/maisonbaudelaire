@@ -48,10 +48,7 @@ export function Home() {
             <WomenTransparent classname={styles.models}/>
 
 
-            {showPopup && (
-                <StickerPopup formData={formData} setFormData={setFormData} open={showPopup}
-                              setOpen={setShowPopup}/>)
-            }
+            
         </div>
     );
 }

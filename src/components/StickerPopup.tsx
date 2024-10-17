@@ -2,6 +2,7 @@ import React from "react";
 
 import {FormData} from "../Pages/Home/UseFormData";
 import SelectionForm from "./StickerForm/SelectionForm";
+import Soldout from "../assets/Soldout";
 
 interface StickersPopupProps {
     formData: FormData,
@@ -32,6 +33,7 @@ export default function StickerPopup({formData, setFormData, setOpen}: StickersP
                     formData={formData} setFormData={setFormData}
                     onSend={() => setOpen(false)}
                 />
+                
             </div>
         </div>
     )
