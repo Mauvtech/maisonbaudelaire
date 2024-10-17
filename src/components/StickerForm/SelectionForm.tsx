@@ -5,23 +5,18 @@ import { Color, FormData, Size } from "../../Pages/Home/UseFormData";
 import useEmail from "../../Pages/Home/UseEmail";
 import Soldout from "../../assets/Soldout";
 
-interface SelectionFormProps {
-    formData: FormData;
-    setFormData: (formSelection: FormData) => void;
-    className?: string;
-    classValider?: string;
-    onSend?: () => any;
-}
 
-// Tailles disponibles en fonction de la couleur sélectionnée
-const availableSizesByColor = {
-    [Color.WHITE_PINK]: [],// Sold out pour Blanc&Rose
-    [Color.BLACK_WHITE]: [Size.M], // Tailles disponibles pour Noir&Blanc
-};
+interface SelectionFormProps {
+    formData: FormData,
+    setFormData: (formSelection: FormData) => void,
+    className?: string,
+    classValider?: string,
+    onSend?: () => any
+}
 
 export default function SelectionForm({ formData, setFormData, className, onSend, classValider }: SelectionFormProps) {
 
-    const { sendEmail } = useEmail();
+    const { sendEmail } = useEmail()
 
     const handleSubmit = (event: any) => {
         event.preventDefault();
@@ -29,34 +24,28 @@ export default function SelectionForm({ formData, setFormData, className, onSend
         onSend && onSend();
     };
 
-    // Obtenir les tailles disponibles en fonction de la couleur sélectionnée
-    const availableSizes = availableSizesByColor[formData.color] || [];
 
     return (
-        <form onSubmit={handleSubmit} className={className}>
+        <form onSubmit={handleSubmit}
+            className={className}>
             <div className={"float-left"}>
                 <FormItem
                     label={"NOM"}
                     value={formData.name ?? ""}
                     onChange={(nom) => setFormData({ ...formData, name: nom })}
                 />
-                <FormItem
-                    label={"PRENOM"}
-                    value={formData.surname ?? ""}
+                <FormItem label={"PRENOM"} value={formData.surname ?? ""}
                     onChange={(e) => setFormData({ ...formData, surname: e })}
                 />
-                <FormItem
-                    label={"MAIL"}
-                    value={formData.email ?? ""}
+                <FormItem label={"MAIL"} value={formData.email ?? ""}
                     id={"email"}
                     onChange={(e) => setFormData({ ...formData, email: e })}
                 />
-                <FormItem
-                    label={"TÉLÉPHONE"}
-                    value={formData.phone ?? ""}
+
+                <FormItem label={"TÉLÉPHONE"} value={formData.phone ?? ""}
                     onChange={(e) => setFormData({ ...formData, phone: e })}
                 />
-
+                <Soldout classname={"absolute -top-[25%]   object-cover "} />
                 <div className="flex">
                     <label htmlFor="popup-couleur" className="mr-[4%]">COULEUR:</label>
                     <div className="flex space-x-4">
@@ -64,42 +53,41 @@ export default function SelectionForm({ formData, setFormData, className, onSend
                             <button
                                 key={color}
                                 type="button"
-                                onClick={() => setFormData({ ...formData, color })}
-                                className={`${formData.color === color ? 'underline' : ''} bg-transparent focus:outline-none text-white`}
+                                onClick={(e) => setFormData({ ...formData, color: color })}
+                                className={`${formData.color === color ? 'underline' : ''
+                                    } bg-transparent focus:outline-none text-white`}
                             >
                                 {color}
                             </button>
                         ))}
                     </div>
                 </div>
-
                 <div className="flex">
-                    <label htmlFor="popup-taille" className="mr-[4%]">TAILLE OVERSIZE:</label>
-                    <div className="flex space-x-4">
-                        {availableSizes.length > 0 ? (
-                            availableSizes.map((size) => (
-                                <button
-                                    key={size}
-                                    type="button"
-                                    onClick={() => setFormData({ ...formData, size })}
-                                    className={`${formData.size === size ? 'underline' : ''} z-50 focus:outline-none text-white`}
-                                >
-                                    {size}
-                                </button>
-                            ))
-                        ) : (
-                            <Soldout classname="lg:w-32 w-12 object-cover"/>// Affiche "Sold out" si aucune taille n'est disponible
-                        )}
+                    <label htmlFor="popup-taille" className="mr-[4%]">TAILLE:</label>
+                    <div className="flex space-x-4 ">
+                        {Object.values(Size).map((size) => (
+                            <button
+                                key={size}
+                                type="button"
+                                onClick={(e) => setFormData({ ...formData, size: size })}
+                                className={`${formData.size === size ? 'underline' : ''
+                                    } z-50 focus:outline-none text-white`}
+                            >
+                                {size}
+                            </button>
+                        ))}
                     </div>
                 </div>
             </div>
-
             <div className={"float-right flex items-end flex-wrap justify-end " + classValider}>
-                <button className={"text-[150%] underline lg:mr-[10%]"} type="submit">
+                <button
+                    className={"text-[150%] underline lg:mr-[10%]"}
+                    type="submit"
+                >
                     Valider
                 </button>
             </div>
-        </form>
-    );
-}
 
+        </form>
+    )
+}
