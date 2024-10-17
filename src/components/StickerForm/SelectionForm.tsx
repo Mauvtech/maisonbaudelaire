@@ -15,7 +15,7 @@ interface SelectionFormProps {
 
 // Tailles disponibles en fonction de la couleur sélectionnée
 const availableSizesByColor = {
-    [Color.WHITE_PINK]: [Size.S],// Sold out pour Blanc&Rose
+    [Color.WHITE_PINK]: [],// Sold out pour Blanc&Rose
     [Color.BLACK_WHITE]: [Size.M], // Tailles disponibles pour Noir&Blanc
 };
 
