@@ -62,14 +62,14 @@ export default function SelectionForm({formData, setFormData, className, onSend,
                 </div>
                 <div className="flex">
                     <label htmlFor="popup-taille" className="mr-[4%]">TAILLE:</label>
-                    <div className="flex space-x-4">
+                    <div className="flex space-x-4 ">
                         {Object.values(Size).map((size) => (
                             <button
                                 key={size}
                                 type="button"
                                 onClick={(e) => setFormData({...formData, size: size})}
                                 className={`${formData.size === size ? 'underline' : ''
-                                } bg-transparent focus:outline-none text-white`}
+                                } z-50 focus:outline-none text-white`}
                             >
                                 {size}
                             </button>
