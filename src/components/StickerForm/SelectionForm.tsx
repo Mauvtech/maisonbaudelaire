@@ -14,8 +14,8 @@ interface SelectionFormProps {
 
 // Tailles disponibles en fonction de la couleur sélectionnée
 const availableSizesByColor = {
-    [Color.WHITE_PINK]: [Size.S, Size.M, Size.Oversize],// Sold out pour Blanc&Rose
-    [Color.BLACK_WHITE]: [Size.S, Size.M, Size.Oversize], // Tailles disponibles pour Noir&Blanc
+    [Color.WHITE_PINK]: [Size.S, Size.M],// Sold out pour Blanc&Rose
+    [Color.BLACK_WHITE]: [Size.S, Size.M], // Tailles disponibles pour Noir&Blanc
 };
 
 export default function SelectionForm({ formData, setFormData, className, onSend, classValider }: SelectionFormProps) {
@@ -73,7 +73,7 @@ export default function SelectionForm({ formData, setFormData, className, onSend
                 </div>
 
                 <div className="flex">
-                    <label htmlFor="popup-taille" className="mr-[4%]">TAILLE:</label>
+                    <label htmlFor="popup-taille" className="mr-[4%]">TAILLE OVERSIZE:</label>
                     <div className="flex space-x-4">
                         {availableSizes.length > 0 ? (
                             availableSizes.map((size) => (
