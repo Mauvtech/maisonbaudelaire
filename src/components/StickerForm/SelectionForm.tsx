@@ -74,7 +74,7 @@ export default function SelectionForm({ formData, setFormData, className, onSend
                 </div>
 
                 <div className="flex">
-                    <label htmlFor="popup-taille" className="mr-[4%]">TAILLE OVERSIZE:</label>
+                    <label htmlFor="popup-taille" className="mr-[4%] w-[200%]">TAILLE OVERSIZE:</label>
                     <div className="flex space-x-4">
                         {availableSizes.length > 0 ? (
                             availableSizes.map((size) => (
