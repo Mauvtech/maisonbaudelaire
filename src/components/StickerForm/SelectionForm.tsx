@@ -1,6 +1,5 @@
 import FormItem from "./FormItem/FormItem";
 import React from "react";
-
 import { Color, FormData, Size } from "../../Pages/Home/UseFormData";
 import useEmail from "../../Pages/Home/UseEmail";
 import Soldout from "../../assets/Soldout";
@@ -15,22 +14,30 @@ interface SelectionFormProps {
 
 // Tailles disponibles en fonction de la couleur sélectionnée
 const availableSizesByColor = {
-    [Color.WHITE_PINK]: [],// Sold out pour Blanc&Rose
+    [Color.WHITE_PINK]: [], // Sold out pour Blanc&Rose
     [Color.BLACK_WHITE]: [], // Tailles disponibles pour Noir&Blanc
 };
 
-export default function SelectionForm({ formData, setFormData, className, onSend, classValider }: SelectionFormProps) {
-
+export default function SelectionForm({
+    formData,
+    setFormData,
+    className,
+    onSend,
+    classValider,
+}: SelectionFormProps) {
     const { sendEmail } = useEmail();
 
     const handleSubmit = (event: any) => {
         event.preventDefault();
-        sendEmail(formData);
-        onSend && onSend();
+        if (availableSizes.length > 0) {
+            sendEmail(formData);
+            onSend && onSend();
+        }
     };
 
     // Obtenir les tailles disponibles en fonction de la couleur sélectionnée
     const availableSizes = availableSizesByColor[formData.color] || [];
+    const isSoldOut = availableSizes.length === 0;
 
     return (
         <form onSubmit={handleSubmit} className={className}>
@@ -39,22 +46,26 @@ export default function SelectionForm({ formData, setFormData, className, onSend
                     label={"NOM"}
                     value={formData.name ?? ""}
                     onChange={(nom) => setFormData({ ...formData, name: nom })}
+                    disabled={isSoldOut}
                 />
                 <FormItem
                     label={"PRENOM"}
                     value={formData.surname ?? ""}
                     onChange={(e) => setFormData({ ...formData, surname: e })}
+                    disabled={isSoldOut}
                 />
                 <FormItem
                     label={"MAIL"}
                     value={formData.email ?? ""}
                     id={"email"}
                     onChange={(e) => setFormData({ ...formData, email: e })}
+                    disabled={isSoldOut}
                 />
                 <FormItem
                     label={"TÉLÉPHONE"}
                     value={formData.phone ?? ""}
                     onChange={(e) => setFormData({ ...formData, phone: e })}
+                    disabled={isSoldOut}
                 />
 
                 <div className="flex">
@@ -66,6 +77,7 @@ export default function SelectionForm({ formData, setFormData, className, onSend
                                 type="button"
                                 onClick={() => setFormData({ ...formData, color })}
                                 className={`${formData.color === color ? 'underline' : ''} bg-transparent focus:outline-none text-white`}
+                                disabled={isSoldOut}
                             >
                                 {color}
                             </button>
@@ -88,14 +100,18 @@ export default function SelectionForm({ formData, setFormData, className, onSend
                                 </button>
                             ))
                         ) : (
-                            <Soldout classname="lg:w-96 w-64 -mt-32 z-20 object-contain"/>// Affiche "Sold out" si aucune taille n'est disponible
+                            <Soldout classname="lg:w-96 w-64 -mt-32 z-20 object-contain" />
                         )}
                     </div>
                 </div>
             </div>
 
             <div className={"float-right flex items-end flex-wrap justify-end " + classValider}>
-                <button className={"text-[150%] underline lg:mr-[10%]"} type="submit">
+                <button
+                    className={"text-[150%] underline lg:mr-[10%]"}
+                    type="submit"
+                    disabled={isSoldOut} // Désactive le bouton Valider si sold out
+                >
                     Valider
                 </button>
             </div>
